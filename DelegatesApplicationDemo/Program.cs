@@ -11,10 +11,12 @@ namespace DelegatesApplicationDemo
         static void Main(string[] args)
         {
             Account acc1 = new Account();
-            acc1.notification = Alert.SendMail; // subscribe
+            acc1.notification += Alert.SendMail; // subscribe
+            //acc1.Subscribe(Alert.SendMail);
+            //acc1.Subscribe(Alert.SendSMS);
             acc1.notification += Alert.SendSMS; // subscribe
-            acc1.notification.Invoke("EMAIL : Your account has been deposited $999999999999999999999");
-            //acc1.Deposit(1000);
+            //acc1.notification.Invoke("EMAIL : Your account has been deposited $999999999999999999999");
+            acc1.Deposit(1000);
             //acc1.Withdraw(100);
         }
     }
@@ -22,8 +24,18 @@ namespace DelegatesApplicationDemo
     class Account
     {
         public int Balance { get; private set; }
-        private Notification notification = null; //new Notification(Alert.SendMail);
+        public event Notification notification = null; //new Notification(Alert.SendMail);
 
+
+        //public void Subscribe(Notification n)
+        //{
+        //    notification += n;
+        //}
+
+        //public void Unsubscribe(Notification n)
+        //{
+        //    notification -= n;
+        //}
         public void Deposit(int amount)
         {
             Balance += amount;
