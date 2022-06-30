@@ -12,21 +12,56 @@ namespace DelegatesApplicationDemo2
         static void Main(string[] args)
         {
             // client 1
-            ProcessManager.ShowProcessList(NoFilter);
+            //ProcessManager.ShowProcessList(NoFilter);
+
             // client 2
             //FilterDelegate filter = new FilterDelegate(FilterByName);
             //ProcessManager.ShowProcessList(filter);
             // client 3
             //ProcessManager.ShowProcessList(FilterByMemSize);
 
+            //   Anonymous Methods / Delegates
+            ProcessManager.ShowProcessList( delegate
+                {
+                return true;
+                }
+            );
 
+            ProcessManager.ShowProcessList(delegate(Process p)
+                {
+                return p.WorkingSet64 >= 50 * 1024 * 1024;
+                }
+             );
+
+            // Lambda => Light Weight Syntax for Anonymous Delegates
+
+            // Lambda => Statements
+
+
+            ProcessManager.ShowProcessList((Process p) =>
+            {
+                return p.WorkingSet64 >= 50 * 1024 * 1024;
+            }
+             );
+
+            // Lambda => Expressions
+
+
+            ProcessManager.ShowProcessList((Process p) =>
+            
+                 p.WorkingSet64 >= 50 * 1024 * 1024
+            
+             );
+
+            ProcessManager.ShowProcessList( p => p.WorkingSet64 >= 50 * 1024 * 1024);
+            ProcessManager.ShowProcessList(p => p.ProcessName.StartsWith("S"));
         }
 
         // client 1
-        public static bool NoFilter(Process p)
-        {
-            return true;
-        }
+        //public static bool NoFilter(Process p)
+        //{
+        //    return true;
+        //}
         //client3
         public static bool FilterByMemSize(Process p)
         {
