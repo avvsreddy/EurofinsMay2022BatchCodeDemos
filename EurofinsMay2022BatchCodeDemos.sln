@@ -39,6 +39,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesApplicationDemo", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesApplicationDemo2", "DelegatesApplicationDemo2\DelegatesApplicationDemo2.csproj", "{D43CEEA7-C648-44C6-BD09-59138269DE1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda-Demos", "Lambda-Demos\Lambda-Demos.csproj", "{6221A21B-A3CE-4E92-AD45-79F621A97FE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Testing Demo", "Unit Testing Demo", "{F0E8CDEF-4092-440E-BA64-9A9928722651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppLibrary", "BankAppLibrary\BankAppLibrary.csproj", "{3840FC3B-74A7-43AD-A9FB-8E222C8C7C72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppLibraryUnitTestProject", "BankAppLibraryUnitTestProject\BankAppLibraryUnitTestProject.csproj", "{B1AD2A20-CCA8-400F-816E-1703946D8632}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,9 +125,25 @@ Global
 		{D43CEEA7-C648-44C6-BD09-59138269DE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D43CEEA7-C648-44C6-BD09-59138269DE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D43CEEA7-C648-44C6-BD09-59138269DE1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6221A21B-A3CE-4E92-AD45-79F621A97FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6221A21B-A3CE-4E92-AD45-79F621A97FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6221A21B-A3CE-4E92-AD45-79F621A97FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6221A21B-A3CE-4E92-AD45-79F621A97FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3840FC3B-74A7-43AD-A9FB-8E222C8C7C72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3840FC3B-74A7-43AD-A9FB-8E222C8C7C72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3840FC3B-74A7-43AD-A9FB-8E222C8C7C72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3840FC3B-74A7-43AD-A9FB-8E222C8C7C72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1AD2A20-CCA8-400F-816E-1703946D8632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1AD2A20-CCA8-400F-816E-1703946D8632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1AD2A20-CCA8-400F-816E-1703946D8632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1AD2A20-CCA8-400F-816E-1703946D8632}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3840FC3B-74A7-43AD-A9FB-8E222C8C7C72} = {F0E8CDEF-4092-440E-BA64-9A9928722651}
+		{B1AD2A20-CCA8-400F-816E-1703946D8632} = {F0E8CDEF-4092-440E-BA64-9A9928722651}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D18B3E31-F8D5-4709-9D70-B2FFC138C2DE}
