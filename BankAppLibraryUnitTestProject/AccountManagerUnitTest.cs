@@ -4,7 +4,18 @@ using BankAppLibrary;
 
 namespace BankAppLibraryUnitTestProject
 {
+    //public class MockNotification : INotification
+    //{
+    //    public void SendMail(string msg)
+    //    {
+    //        //
+    //    }
+    //}
+
+
     [TestClass]
+    
+
     public class AccountManagerUnitTest
     {
         Account a = null;
@@ -15,7 +26,13 @@ namespace BankAppLibraryUnitTestProject
         public void Initialize()
         {
             a = new Account { AccNo = 111, Balance = 5000, IsActive = true, Pin = 1234 };
-            target = new AccountManager();
+            //INotification mock = new RealNotification();
+
+            Moq.Mock<INotification> mock = new Moq.Mock<INotification>();
+            mock.Setup(i => i.SendMail(string.Empty));
+
+
+            target = new AccountManager(mock.Object);
         }
 
         [TestCleanup]
