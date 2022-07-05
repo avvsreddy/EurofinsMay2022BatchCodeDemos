@@ -21,6 +21,11 @@ namespace DbProgrammingDemo.DataAccess
 
         List<Product> GetProductsByCatagory(string catagory);
         Product GetProductByName(string name);
+        /// <summary>
+        /// Search product by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>returns product data. if not found returns null</returns>
         Product GetProductById(int id);
 
         int GetProductsCost();

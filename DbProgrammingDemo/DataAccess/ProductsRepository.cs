@@ -14,6 +14,90 @@ namespace DbProgrammingDemo.DataAccess
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Search product by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>returns product data. if not found returns null</returns>
+        public Product GetProductById(int id)
+        {
+            // Step 1: Connect to DB
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=MyProductsDB2022;Integrated Security=True";
+            conn.Open();
+
+            string sqlSelect = $"select * from products where productid = {id}";
+            SqlCommand cmd = new SqlCommand(sqlSelect, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            Product p = null;
+            if (reader.HasRows)
+            {
+                reader.Read();
+                p = new Product();
+                p.ProductId = (int)reader[0];
+                p.Name = reader[1].ToString();
+                p.Price = (int)reader["Price"];
+                p.Brand = reader.GetString(3);
+                p.Catagory = reader.GetString(4);
+            }
+            conn.Close();
+            return p;
+
+        }
+
+        public Product GetProductByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetProducts()
+        {
+            // Step 1: Connect to DB
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=MyProductsDB2022;Integrated Security=True";
+            conn.Open();
+
+            string sqlSelect = $"select * from products";
+            SqlCommand cmd = new SqlCommand(sqlSelect, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            Product p = null;
+            List<Product> plist = new List<Product>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    p = new Product();
+                    p.ProductId = (int)reader[0];
+                    p.Name = reader[1].ToString();
+                    p.Price = (int)reader["Price"];
+                    p.Brand = reader.GetString(3);
+                    p.Catagory = reader.GetString(4);
+                    plist.Add(p);
+                }
+            }
+            conn.Close();
+            return plist;
+        }
+
+        public List<Product> GetProductsByBrand(string brand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetProductsByCatagory(string catagory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetProductsCost()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetProductsCount()
+        {
+            throw new NotImplementedException();
+        }
 
         public int Save(Product productToSave)
         {
