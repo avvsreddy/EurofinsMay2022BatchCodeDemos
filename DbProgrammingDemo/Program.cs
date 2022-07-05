@@ -33,11 +33,13 @@ namespace DbProgrammingDemo
             //Console.WriteLine($"{count} product(s) saved");
 
             IProductsRepository repo = new ProductsRepository();
-            List<Product> products = repo.GetProducts();
-            foreach (Product p in products)       
-            {
-                Console.WriteLine(p.Name);
-            }
+            //List<Product> products = repo.GetProducts();
+            //foreach (Product p in products)       
+            //{
+            //    Console.WriteLine(p.Name);
+            //}
+            Product p = repo.GetProductById(1);
+            Console.WriteLine(p.Name);
         }
     }
 
