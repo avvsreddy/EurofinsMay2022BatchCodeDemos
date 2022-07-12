@@ -27,9 +27,6 @@ namespace KnowledgeHubPortal.Controllers
             return View();
         }
 
-        public ActionResult abcd()
-        {
-            return View();
-        }
+        
     }
 }
