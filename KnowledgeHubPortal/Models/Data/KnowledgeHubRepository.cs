@@ -12,17 +12,24 @@ namespace KnowledgeHubPortal.Models.Data
         private KnowledgeHubDbContext db = new KnowledgeHubDbContext();
         public void DeleteCatagory(int id)
         {
-            throw new NotImplementedException();
+            db.Catagories.Remove(db.Catagories.Find(id));
+            db.SaveChanges();
         }
 
         public void EditCatagory(Catagory catagoryToEdit)
         {
-            throw new NotImplementedException();
+            db.Entry(catagoryToEdit).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
         }
 
         public List<Catagory> GetCatagories()
         {
             return db.Catagories.ToList();
+        }
+
+        public Catagory GetCatagory(int id)
+        {
+            return db.Catagories.Find(id);
         }
 
         public void SaveCatagory(Catagory catagoryToSave)

@@ -40,5 +40,29 @@ namespace KnowledgeHubPortal.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public ActionResult Delete(int id)
+        {
+            Catagory catagory = repo.GetCatagory(id);
+            return View(catagory);
+        }
+
+        public ActionResult ConfirmDelete(int id)
+        {
+            repo.DeleteCatagory(id);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Catagory catagory = repo.GetCatagory(id);
+            return View(catagory);
+        }
+        [HttpPost]
+        public ActionResult Edit(Catagory catagoryToEdit)
+        {
+            repo.EditCatagory(catagoryToEdit);
+            return RedirectToAction("Index");
+        }
     }
 }

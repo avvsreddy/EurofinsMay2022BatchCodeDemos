@@ -12,6 +12,7 @@ namespace KnowledgeHubPortal.Models.Data
 
         void SaveCatagory(Catagory catagoryToSave);
         List<Catagory> GetCatagories();
+        Catagory GetCatagory(int id);
 
         void DeleteCatagory(int id);
 

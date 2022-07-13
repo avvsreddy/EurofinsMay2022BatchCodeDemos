@@ -179,6 +179,7 @@
     <Compile Include="Models\Data\IKnowledgeHubRepository.cs" />
     <Compile Include="Models\Data\KnowledgeHubDbContext.cs" />
     <Compile Include="Models\Data\KnowledgeHubRepository.cs" />
+    <Compile Include="Models\Entities\Article.cs" />
     <Compile Include="Models\Entities\Catagory.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -243,6 +244,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Catagories\Create.cshtml" />
     <Content Include="Views\Catagories\Index.cshtml" />
+    <Content Include="Views\Catagories\Delete.cshtml" />
+    <Content Include="Views\Catagories\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

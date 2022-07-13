@@ -1,0 +1,35 @@
+﻿@model KnowledgeHubPortal.Models.Entities.Catagory
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Catagory</h2>
+
+<form action="/Catagories/Edit" method="post">
+    <input type="hidden" name="catagoryid" value="@Model.CatagoryID" />
+    Modify Catagory Title* @Html.ValidationMessage("title")  <br />
+    <input type="text" name="title" value="@Model.Title" /><br />
+    Modify Description<br />
+    <textarea rows="4" cols="60" name="description">@Model.Description</textarea><br />
+    <input type="submit" name="btnSub" value="Submit" />
+</form>
+
+<br />
+
+
+@using (Html.BeginForm("Edit", "Catagories", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.CatagoryID)
+    @Html.LabelFor(m=>m.Title)<br />
+    @Html.EditorFor(m => m.Title)
+    <br />
+    @Html.LabelFor(m=>m.Description)<br />
+    @Html.TextAreaFor(m => m.Description)
+    <br />
+    <input type="submit" name="btnSub" value="Submit" />
+}
+
+
+
+
+

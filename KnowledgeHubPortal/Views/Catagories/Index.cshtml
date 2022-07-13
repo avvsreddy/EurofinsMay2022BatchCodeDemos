@@ -3,20 +3,40 @@
     ViewBag.Title = "Index";
 }
 
-<h2>List of Catagories</h2>
+<h2>Manage Catagories</h2>
 <hr />
 No. of Catagories:  @Model.Count
+<br />
 
-<ul>
+<a href="/Catagories/Create" class="btn btn-primary">Create New Catagory</a>
+<br />
+
+<table class="table table-bordered" >
+    <tr>
+        <td>ID</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Delete</td>
+        <td>Edit</td>
+    </tr>
+
     @foreach (var item in Model)
     {
-        <li>
-            @item.Title
-        </li>
+       <tr>
+           <td>@item.CatagoryID</td>
+           <td>@item.Title</td>
+           <td>@item.Description</td>
+           <td>
+               <a href="/Catagories/Delete/@item.CatagoryID" class="btn btn-danger">Delete</a>
+           </td>
+           <td>
+                <a href="/Catagories/Edit/@item.CatagoryID" class="btn btn-primary">Edit</a>
+           </td>
+       </tr>
 
     }
     
-</ul>
+</table>
 
 
 
