@@ -16,6 +16,7 @@ namespace KnowledgeHubPortal.Models.Data
 
 
         public DbSet<Catagory> Catagories { get; set; }
+        public DbSet<Article> Articles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -10,6 +10,21 @@ namespace KnowledgeHubPortal.Models.Data
     {
 
         private KnowledgeHubDbContext db = new KnowledgeHubDbContext();
+
+        public void ApproveArticles(List<int> articlesToApprove)
+        {
+            foreach (int id in articlesToApprove)
+            {
+                var article = db.Articles.Find(id);
+                if(article != null)
+                {
+                    article.IsApproved = true;
+                }
+            }
+            db.SaveChanges();
+        }
+
+        #region Catagories
         public void DeleteCatagory(int id)
         {
             db.Catagories.Remove(db.Catagories.Find(id));
@@ -22,6 +37,21 @@ namespace KnowledgeHubPortal.Models.Data
             db.SaveChanges();
         }
 
+        public List<Article> GetApprovedArticles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Article> GetApprovedArticlesByCatagory(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Article> GetArticlesForApprove()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Catagory> GetCatagories()
         {
             return db.Catagories.ToList();
@@ -32,10 +62,32 @@ namespace KnowledgeHubPortal.Models.Data
             return db.Catagories.Find(id);
         }
 
+        public List<Article> GetNewArticlesByCatagory(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RejectArticles(List<int> articlesToReject)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveCatagory(Catagory catagoryToSave)
         {
             db.Catagories.Add(catagoryToSave);
             db.SaveChanges();
         }
+
+        public void SubmitArticle(Article articleToSave)
+        {
+            db.Articles.Add(articleToSave);
+            db.SaveChanges();
+        }
+        #endregion
+
+        #region Articles
+
+
+        #endregion
     }
 }

@@ -1,0 +1,31 @@
+﻿@model List<KnowledgeHubPortal.Models.Entities.Article>
+@{
+    ViewBag.Title = "Approve";
+}
+
+<h2>Approve Articles</h2>
+<form  method="post">
+    <table class="table table-bordered">
+        <tr>
+            <td>Select</td>
+            <td>Title</td>
+            <td>Url</td>
+            <td>Catagory</td>
+        </tr>
+
+
+        @foreach (var artile in Model)
+        {
+            <tr>
+                <td><input type="checkbox" name="ids" value="@artile.ArticleID" /></td>
+                <td>@artile.Title</td>
+                <td>@artile. Url</td>
+                <td>@artile.Catagory.Title</td>
+            </tr>
+        }
+
+    </table>
+    <input type="submit"  formaction="/Articles/Approve" name="btnApprove" value="Approve" class="btn-success" />
+    <input type="submit" formaction="/Articles/Reject" name="btnReject" value="Reject" class="btn-danger" />
+</form>
+
