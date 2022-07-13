@@ -4,12 +4,13 @@
 }
 
 <h2>Approve Articles</h2>
+@TempData["Message"]
+<br />
 <form  method="post">
     <table class="table table-bordered">
         <tr>
             <td>Select</td>
             <td>Title</td>
-            <td>Url</td>
             <td>Catagory</td>
         </tr>
 
@@ -18,14 +19,13 @@
         {
             <tr>
                 <td><input type="checkbox" name="ids" value="@artile.ArticleID" /></td>
-                <td>@artile.Title</td>
-                <td>@artile. Url</td>
+                <td><a href="@artile.Url" target="_blank">@artile.Title</a></td>
                 <td>@artile.Catagory.Title</td>
             </tr>
         }
 
     </table>
-    <input type="submit"  formaction="/Articles/Approve" name="btnApprove" value="Approve" class="btn-success" />
-    <input type="submit" formaction="/Articles/Reject" name="btnReject" value="Reject" class="btn-danger" />
+    <input type="submit"  formaction="/Articles/ApproveArticles" name="btnApprove" value="Approve" class="btn-success" />
+    <input type="submit" formaction="/Articles/RejectArticles" name="btnReject" value="Reject" class="btn-danger" />
 </form>
 

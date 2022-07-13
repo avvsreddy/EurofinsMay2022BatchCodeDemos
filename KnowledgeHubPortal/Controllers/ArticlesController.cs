@@ -49,7 +49,7 @@ namespace KnowledgeHubPortal.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
+        [HttpGet]
         public ActionResult Approve()
         {
             List<Catagory> catagories = repo.GetCatagories();
@@ -59,6 +59,20 @@ namespace KnowledgeHubPortal.Controllers
 
 
             return View(newArticlesForApprove);
+        }
+        [HttpPost]
+        public ActionResult ApproveArticles(List<int> ids)
+        {
+            repo.ApproveArticles(ids);
+            TempData["Message"] = $"{ids.Count} articles are approved successfully";
+            return RedirectToAction("Approve");
+        }
+
+        public ActionResult RejectArticles(List<int> ids)
+        {
+            repo.RejectArticles(ids);
+            TempData["Message"] = $"{ids.Count} articles are rejected successfully";
+            return RedirectToAction("Approve");
         }
     }
 }

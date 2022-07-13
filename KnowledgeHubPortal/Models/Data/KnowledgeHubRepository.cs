@@ -49,7 +49,7 @@ namespace KnowledgeHubPortal.Models.Data
 
         public List<Article> GetArticlesForApprove()
         {
-            throw new NotImplementedException();
+            return db.Articles.Where(a => !a.IsApproved).ToList();
         }
 
         public List<Catagory> GetCatagories()
@@ -69,7 +69,15 @@ namespace KnowledgeHubPortal.Models.Data
 
         public void RejectArticles(List<int> articlesToReject)
         {
-            throw new NotImplementedException();
+            foreach (int id in articlesToReject)
+            {
+                var article = db.Articles.Find(id);
+                if (article != null)
+                {
+                    db.Articles.Remove(article);
+                }
+            }
+            db.SaveChanges();
         }
 
         public void SaveCatagory(Catagory catagoryToSave)
