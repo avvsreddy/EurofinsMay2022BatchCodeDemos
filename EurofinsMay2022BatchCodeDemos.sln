@@ -75,6 +75,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC Web App", "MVC Web App"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeHubPortal", "KnowledgeHubPortal\KnowledgeHubPortal.csproj", "{EA8878DD-AE6C-4704-B977-12B900A3C172}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBook.Web", "AddressBook.Web\AddressBook.Web.csproj", "{04152F0F-D800-471B-939F-5BC4618E0E95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -205,6 +207,10 @@ Global
 		{EA8878DD-AE6C-4704-B977-12B900A3C172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA8878DD-AE6C-4704-B977-12B900A3C172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA8878DD-AE6C-4704-B977-12B900A3C172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04152F0F-D800-471B-939F-5BC4618E0E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04152F0F-D800-471B-939F-5BC4618E0E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04152F0F-D800-471B-939F-5BC4618E0E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04152F0F-D800-471B-939F-5BC4618E0E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -222,6 +228,7 @@ Global
 		{0B27C0CD-D1FE-4CBE-8100-7D3608032147} = {FEF56D09-9C79-4501-BA73-C0E764BE0C31}
 		{42646549-AF48-435F-90D4-78523BAE1E63} = {FEF56D09-9C79-4501-BA73-C0E764BE0C31}
 		{EA8878DD-AE6C-4704-B977-12B900A3C172} = {3D0A9C59-9235-4FCF-9ABA-08E0D9EB7D9A}
+		{04152F0F-D800-471B-939F-5BC4618E0E95} = {3D0A9C59-9235-4FCF-9ABA-08E0D9EB7D9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D18B3E31-F8D5-4709-9D70-B2FFC138C2DE}

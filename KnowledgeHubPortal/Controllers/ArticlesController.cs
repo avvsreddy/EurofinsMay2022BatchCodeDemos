@@ -5,16 +5,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Humanizer;
 
 namespace KnowledgeHubPortal.Controllers
 {
     public class ArticlesController : Controller
     {
 
+        
+
         IKnowledgeHubRepository repo = new KnowledgeHubRepository();
         // GET: Articles
         public ActionResult Index()
         {
+            new DateTime().Humanize();
+
             return View();
         }
 
@@ -73,6 +78,25 @@ namespace KnowledgeHubPortal.Controllers
             repo.RejectArticles(ids);
             TempData["Message"] = $"{ids.Count} articles are rejected successfully";
             return RedirectToAction("Approve");
+        }
+
+        public ActionResult Browse(int cid=0)
+        {
+            List<Article> articles = new List<Article>();
+            if (cid != 0)
+            {
+                articles = (from a in repo.GetApprovedArticles()
+                            where a.CatagoryID == cid
+                            select a).ToList();
+
+            }
+            else
+            {
+                articles = repo.GetApprovedArticles();
+            }
+            ViewBag.cid = from c in repo.GetCatagories()
+                          select new SelectListItem { Text = c.Title, Value = c.CatagoryID.ToString() };
+            return View(articles);
         }
     }
 }

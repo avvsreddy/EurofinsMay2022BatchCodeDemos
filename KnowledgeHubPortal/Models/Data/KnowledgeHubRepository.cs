@@ -39,7 +39,7 @@ namespace KnowledgeHubPortal.Models.Data
 
         public List<Article> GetApprovedArticles()
         {
-            throw new NotImplementedException();
+            return db.Articles.Where(a => a.IsApproved).ToList();
         }
 
         public List<Article> GetApprovedArticlesByCatagory(int id)

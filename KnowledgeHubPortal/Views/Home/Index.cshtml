@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Humanizer
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,6 +7,9 @@
 <p>
     @TempData["Message"]
 </p>
+
+<h1>@ViewBag.Date</h1>
+
 
 <div class="jumbotron">
     <h1>Welcome to Knowledge Hub Portal</h1>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<KnowledgeHubPortal.Models.Entities.Article>
+    @using System
+@using Humanizer
+@{
+    ViewBag.Title = "Browse";
+}
+
+<h2>Browse</h2>
+
+
+<form action="/Articles/Browse" method="post">
+
+    Select Catagory
+   
+    @Html.DropDownList("cid")
+    <input type="submit" name="btnsubmit" value="Search" />
+    
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostedBy)
+        </th>
+        <th> 
+            @Html.DisplayNameFor(model => model.PostedOn)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <a href="@item.Url" target="_blank">@item.Title</a>
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.PostedBy)
+        </td>
+        <td>
+
+            
+               @Html.DisplayFor(modelItem => item.PostedOn)
+        </td>
+        
+        
+    </tr>
+}
+
+</table>
