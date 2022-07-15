@@ -22,7 +22,7 @@ namespace KnowledgeHubPortal.Controllers
 
             return View();
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult Submit()
         {
@@ -31,6 +31,7 @@ namespace KnowledgeHubPortal.Controllers
 
             return View();
         }
+        [Authorize]
         [HttpPost]
         public ActionResult Submit(Article articleToSubmit)
         {
@@ -53,7 +54,7 @@ namespace KnowledgeHubPortal.Controllers
             
             return RedirectToAction("Index", "Home");
         }
-
+        [Authorize(Roles ="admin")]
         [HttpGet]
         public ActionResult Approve()
         {
@@ -66,13 +67,14 @@ namespace KnowledgeHubPortal.Controllers
             return View(newArticlesForApprove);
         }
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public ActionResult ApproveArticles(List<int> ids)
         {
             repo.ApproveArticles(ids);
             TempData["Message"] = $"{ids.Count} articles are approved successfully";
             return RedirectToAction("Approve");
         }
-
+        [Authorize(Roles = "admin")]
         public ActionResult RejectArticles(List<int> ids)
         {
             repo.RejectArticles(ids);

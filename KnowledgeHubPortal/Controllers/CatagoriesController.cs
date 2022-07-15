@@ -8,12 +8,14 @@ using System.Web.Mvc;
 
 namespace KnowledgeHubPortal.Controllers
 {
+    [Authorize(Roles ="admin")]
     public class CatagoriesController : Controller
     {
 
         IKnowledgeHubRepository repo = new KnowledgeHubRepository();
 
         // GET: Catagories
+        //[AllowAnonymous]
         public ActionResult Index()
         {
             // return a view to list all catagories
