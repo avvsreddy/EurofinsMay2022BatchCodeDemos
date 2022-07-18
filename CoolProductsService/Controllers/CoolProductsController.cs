@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.OData;
 
 namespace CoolProductsService.Controllers
 {
@@ -16,37 +17,39 @@ namespace CoolProductsService.Controllers
         // GET ..../api/coolproducts
         
         //[HttpGet]
-        public List<Product> GetProducts()
+        //[Authorize]
+        [EnableQuery]
+        public IQueryable<Product> GetProducts()
         {
-            return db.Products.ToList();
+            return db.Products.AsQueryable();
         }
 
         // GET ..../api/coolproducts/1
-        public IHttpActionResult GetProducts(int id)
-        {
-            Product p =  db.Products.Find(id);
-            if( p == null)
-            {
-                // 404
-                return NotFound();
-            }
-            else
-            {
-                // data + 200
-                return Ok(p);
-            }
-        }
+        //public IHttpActionResult GetProducts(int id)
+        //{
+        //    Product p =  db.Products.Find(id);
+        //    if( p == null)
+        //    {
+        //        // 404
+        //        return NotFound();
+        //    }
+        //    else
+        //    {
+        //        // data + 200
+        //        return Ok(p);
+        //    }
+        //}
 
         // GET .../api/coolproducts/brand/apple
-        [Route("api/coolproducts/brand/{brand}")]
-        public IHttpActionResult GetProductsByBrand(string brand)
-        {
-            var products = db.Products.Where(p => p.Brand == brand).ToList();
-            if (products.Count == 0 || products == null)
-                return NotFound();
-            else
-                return Ok(products);
-        }
+        //[Route("api/coolproducts/brand/{brand}")]
+        //public IHttpActionResult GetProductsByBrand(string brand)
+        //{
+        //    var products = db.Products.Where(p => p.Brand == brand).ToList();
+        //    if (products.Count == 0 || products == null)
+        //        return NotFound();
+        //    else
+        //        return Ok(products);
+        //}
 
 
         //1. GET .../api/coolproducts/costliest
