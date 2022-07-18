@@ -62,5 +62,49 @@ namespace CoolProductsService.Controllers
         //6. GET .../api/coolproducts/totalworth
 
 
+        // DELETE .../api/coolproducts/id
+
+        //[HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            Product productToDel = db.Products.Find(id);
+            if (productToDel == null)
+                return NotFound();
+
+            db.Products.Remove(productToDel);
+            db.SaveChanges();
+            return Ok();
+        }
+
+        // POST .../api/coolproducts
+        public IHttpActionResult Post(Product productToSave)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid Data");
+
+            db.Products.Add(productToSave);
+            db.SaveChanges();
+            // 201 - location - actual data
+            return Created($"api/coolproducts/{productToSave.ProductID}", productToSave);
+        }
+
+        // PUT  .../api/coolproudcts
+        public IHttpActionResult Put(Product productToEdit)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Invalid input");
+
+            //Product p = db.Products.Find(productToEdit.ProductID);
+            //if (p == null)
+            //    return NotFound();
+
+            db.Entry(productToEdit).State = System.Data.Entity.EntityState.Modified;
+            int count = db.SaveChanges();
+            if (count >= 1)
+                return Ok();
+            else
+                return NotFound();
+
+        }
     }
 }
